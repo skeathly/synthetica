@@ -1,0 +1,37 @@
+<section>
+    {% for synth in synthslist | reverse %}
+        <article{% if synth.url == url %} data-current="current item" {% endif %}>
+            <h3>
+                <a href="{{ post.url | url }}">
+                    {% if synth.data.title %}
+                        {{ synth.data.title }}
+                    {% else %}
+                        Untitled
+                    {% endif %}
+                </a>
+            </h3>
+            {% if synth.data.summary %}
+                <p>
+                    {{ synth.data.summary }}
+                </p>
+            {% endif %}
+            <p>
+                <time datetime="{{ post.date | machineDate }}">
+                    <small>{{ synth.date | readableDate }}
+                        by
+                        {{ metadata.author.name }}</small>
+                </time>
+            </p>
+            {% if synth.data.tags %}
+                <p>
+                    {% for tag in synth.data.tags %}
+                        {%- if tag != "post" -%}
+                            {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+                            <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
+                        {%- endif -%}
+                    {% endfor %}
+                </p>
+            {% endif %}
+        </article>
+    {% endfor %}
+</section>

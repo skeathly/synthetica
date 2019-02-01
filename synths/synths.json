@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/synth.njk",
+  "permalink": "synths/{{ title | slug }}/index.html",
+  "tags": "synth"
+}
