@@ -24,7 +24,7 @@ collections:
   - name: "pages"
     label: "Page"
     folder: "pages"
-    create: false # Change to true to allow editors to create new pages
+    create: true # Change to true to allow editors to create new pages
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
@@ -37,12 +37,11 @@ collections:
   - name: "synths"
     label: "Synth"
     folder: "synths"
-    create: false # Change to true to allow editors to create new pages
+    create: true # Change to true to allow editors to create new pages
     slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
+    fields: # The fields for each document, usually in front matter
+      - { label: "Synth", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Permalink", name: "permalink", widget: "string" }
-      - { label: "Navigation Title", name: "navtitle", widget: "string" }
+      - { label: "Summary", name: "summary", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list", default: ["synth"] }
-      - { label: "Body", name: "body", widget: "markdown" } 
+      - { label: "Body", name: "body", widget: "markdown" }
